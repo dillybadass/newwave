@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/btc_fav-5.png" sizes="32x32" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+    <title>Bidders Club| Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+    <div class="d-none d-lg-flex col-lg-8 align-items-center ui-bg-cover ui-bg-overlay-container p-5">
+        <div class="ui-bg-overlay bg-dark opacity-50"></div>
+        <div class="w-100 text-white px-5">
+            <h1 class="display-2 font-weight-bolder mb-4">JOIN <br>FLIP COIN</h1>
+            <div class="text-large font-weight-light">
+                Bid on our daily bidding sessions and make 30% in 24 hours, withdrawable whenever you feel like it, isn't that great?
+            </div>
+        </div>
+</div>
+<div class="col-lg-4 bg-white p-5 w-100 d-flex align-items-center">
+    <div class="my-card d-flex align-items-center w-100 d-flex col-sm-7 col-md-5 col-lg-12 px-0 px-xl-4 mx-auto">
+        
+        <div class="card d-flex align-items-center w-100">
+            <img src="assets/images/flipcoin.png" alt="">
+            <h4 class="text-center text-lighter font-weight-normal mt-5 mb-0">Login to Your Account</h4>
+         <form class="my-5 w-100">
+            <div class="card-body text-left p-0">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="form-label d-flex justify-content-between align-items-end">
+                        <div>Password</div>
+                        <a href="/account/forgotpassword" class="d-block small">Forgot password?</a>
+                    </label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <!-- <input id="username" type="text" class="form-control" placeholder="Username" required
+                    aria-label="Username" aria-describedby="addon-wrapping">
+                <br />
+                <input id="password" type="password" class="form-control" placeholder="Password" required
+                    aria-label="Username" aria-describedby="addon-wrapping">
+                <br /> -->
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label" for="customCheck1">Remember me</label>
+                    </div>
+                <button id="submit" type="submit" onclick="submit()" class="btn btn-primary btn-md btn-block">Sign in</button>
+                </div>
+            </div>
+            </form>
+            <div class="text-center text-muted">
+                Account not activated yet? <a href="/account/activateaccount">Activate Account</a>
+            </div>
+            <div class="text-center text-muted">
+                Don't have an account yet? <a href="/account/register">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="line"></div>
+   <!--  <div style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
+        <p style="color: #e9edf3; font-size: .7rem; margin-top: 40px;">Copyright Bidders Club © 2020. All right reserved.</p>
+    </div>
+ -->
+    <style>
+        
+
+body { font-family: "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif }
+
+       img {
+    max-width: 250px;
+    height: 40px;
+}
+.form-group label.form-label {
+    margin-bottom: calc(.438rem - 2px);
+    font-weight: 500;
+    font-size: .83125rem;
+    color: #4E5155;
+}
+.my-card .card{border: 0}
+.my-card img {
+    width: 80px;
+    height: 80px;
+}
+.text-muted {
+    color: #a3a4a6 !important;
+}
+.text-lighter {color: rgb(209, 210, 211);}
+.line {
+/*    width: 100vw;
+    height: 0.5px;
+    margin-top: 70%;
+    background-color: #e9edf3;
+    padding-right: 30%;
+    padding-left: 30%;*/
+}
+.form-control {
+    border: 1px solid rgba(24,28,33,0.1);
+}
+.form-control:focus, .custom-select:focus {
+    border-bottom-color: #fc5a5c;
+    -webkit-box-shadow: 0 -1px 0 0 #fc5a5c inset;
+    box-shadow: 0 -1px 0 0 #fc5a5c inset;
+}
+body {
+        font-size: .894rem;
+    font-weight: 400;
+    line-height: 1.47;
+    color: #4E5155;
+    /*background-color: #0c2c5c;*/
+}
+
+.my-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-card h1 {
+    color: #212529;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+#submit {
+    width: auto;
+    font-size: .894rem;
+    background-color: #fc5a5c;
+    -webkit-box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.07), 0px 4px 5px 0px rgba(0,0,0,0.05), 0px 1px 10px 0px rgba(0,0,0,0.03);
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.07), 0px 4px 5px 0px rgba(0,0,0,0.05), 0px 1px 10px 0px rgba(0,0,0,0.03);
+    color: #fff;
+    border-color: #fc5a5c;
+    padding: .438rem 1.125rem;
+    line-height: 1.54;
+}
+.ui-bg-overlay-container:before {
+    content: "";
+    background-color: rgb(24 28 33 / 45%) ;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+}
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #fc5a5c;
+    background-color: #fc5a5c;
+}
+.ui-bg-overlay-container {
+        height: 100vh;
+    background: url(assets/images/1.jpg);
+    background-color: transparent;
+    z-index: 0;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+h1.display-2 {
+    font-weight: 900 !important;
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.1;
+}
+a{color: #1e70cd;    font-size: 14px;}
+.text-large {
+    font-size: 150% !important;
+}
+.custom-checkbox .custom-control-label::before {
+    border-radius: .25rem;
+    top: .0625rem;
+    /* left: 0; */
+    border: 1px solid rgba(24,28,33,0.1);
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    pointer-events: auto;
+    width: 1.125rem;
+    height: 1.125rem;
+}
+h4{font-size: 1.313rem;}
+
+    </style>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCzCCcrdSDZSXBSXYg2jyB8pPTXN47lN6E",
+            authDomain: "liveauction-9864b.firebaseapp.com",
+            databaseURL: "https://liveauction-9864b.firebaseio.com",
+            projectId: "liveauction-9864b",
+            storageBucket: "liveauction-9864b.appspot.com",
+            messagingSenderId: "587625972192",
+            appId: "1:587625972192:web:71195ddf6994641f04eb85",
+            measurementId: "G-6RP6WQBNB0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        // db.settings({timestampsInSnapshots: true})
+    </script>
+    <script src="./scripts/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+
+
+
+</html>
